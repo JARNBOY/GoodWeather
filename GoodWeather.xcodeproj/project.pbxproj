@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB877CBB278194800063B618 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB877CBA278194800063B618 /* Double+Extensions.swift */; };
 		FBC8E9BC27815C9B00844135 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC8E9BB27815C9B00844135 /* AppDelegate.swift */; };
 		FBC8E9BE27815C9B00844135 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC8E9BD27815C9B00844135 /* SceneDelegate.swift */; };
 		FBC8E9C027815C9B00844135 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC8E9BF27815C9B00844135 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB877CBA278194800063B618 /* Double+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		FBC8E9B827815C9B00844135 /* GoodWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC8E9BB27815C9B00844135 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBC8E9BD27815C9B00844135 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		FBC8E9E52781798C00844135 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FB877CBA278194800063B618 /* Double+Extensions.swift */,
 				FBC8E9E62781799900844135 /* String+Extensions.swift */,
 			);
 			path = Extensions;
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBC8E9C027815C9B00844135 /* ViewController.swift in Sources */,
+				FB877CBB278194800063B618 /* Double+Extensions.swift in Sources */,
 				FBC8E9E9278185E800844135 /* WeatherListViewModel.swift in Sources */,
 				FBC8E9E72781799900844135 /* String+Extensions.swift in Sources */,
 				FBC8E9D327815FF300844135 /* AddWeatherCityViewController.swift in Sources */,

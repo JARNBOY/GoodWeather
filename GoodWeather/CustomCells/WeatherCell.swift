@@ -23,4 +23,10 @@ class WeatherCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    
+    
+    func configure(vm: WeatherViewModel){
+        lblCity.text = vm.city
+        lblTemporary.text  = "\(vm.temperature.formatAsDegree())"
+    }
 }
