@@ -36,20 +36,15 @@ class WeatherListTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
 
-        // Configure the cell...
-        var content = cell.defaultContentConfiguration()
-
-        // Configure content.
-//        content.image = UIImage(systemName: "star")
-        content.text = "Houston"
-
-//        // Customize appearance.
-//        content.imageProperties.tintColor = .purple
-        
-        cell.contentConfiguration = content
+        cell.lblCity.text = "Houston"
+        cell.lblTemporary.text  = "70°"
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
     }
     
 
