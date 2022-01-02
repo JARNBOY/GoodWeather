@@ -19,7 +19,16 @@ class AddWeatherCityViewController: UIViewController {
     }
     
     @IBAction func save_click(_ sender: Any) {
-        
+        if let city = cityNameTextField.text{
+            let weatherUrl = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=587faf23c5198901c5deb6a86fbf6308")!
+            let weatherResource = Resource<Any>(url: weatherUrl) { data in
+                return data
+            }
+            
+            Webservice().load(resource: weatherResource) { result in
+                 
+            }
+        }
     }
     
     @IBAction func close_clickj(_ sender: Any) {
