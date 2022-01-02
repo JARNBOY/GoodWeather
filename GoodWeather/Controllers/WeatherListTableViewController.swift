@@ -14,12 +14,16 @@ class WeatherListTableViewController: UITableViewController {
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let resource = Resource<WeatherResponse>(url: URL(string: "https://api.openweathermap.org/data/2.5/weather?q=houston&appid=587faf23c5198901c5deb6a86fbf6308")!) { data in
+            return try? JSONDecoder().decode(WeatherResponse.self, from: data)
+        }
+        
+        Webservice().load(resource: resource) { weatherResponse in
+            if let weatherResponse = weatherResponse{
+                print(weatherResponse)
+            }
+        }
+        
     }
 
     // MARK: - Table view data source
