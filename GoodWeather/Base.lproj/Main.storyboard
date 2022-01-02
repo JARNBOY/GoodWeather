@@ -54,7 +54,7 @@
                     <navigationItem key="navigationItem" title="GoodWeather" id="tin-tJ-v0C">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="LOm-IB-PRu">
                             <connections>
-                                <segue destination="vOG-Ib-NmK" kind="show" id="60F-rc-cyF"/>
+                                <segue destination="vOG-Ib-NmK" kind="show" identifier="SettingsTableViewController" id="60F-rc-cyF"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YCV-jb-gB4">
@@ -155,7 +155,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="75S-z7-gtD">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="3Yn-1M-jQd"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="3Yn-1M-jQd">
+                            <connections>
+                                <action selector="done" destination="sds-rk-DzT" id="iwb-uK-FmZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXe-92-ko3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

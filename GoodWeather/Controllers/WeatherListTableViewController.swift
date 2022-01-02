@@ -7,15 +7,18 @@
 
 import UIKit
 
-class WeatherListTableViewController: UITableViewController,AddWeatherCityViewController_Delegate {
+class WeatherListTableViewController: UITableViewController,AddWeatherCityViewController_Delegate,SettingsTableViewController_Delegate {
     
     private var weatherListViewModels = WeatherListViewModel()
-    
+    private var lastUnitsSelected :Unit = .celsius
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
-     
+        let userDefault = UserDefaults.standard
+        if let value = userDefault.value(forKey: "unit") as? String{
+            self.lastUnitsSelected = Unit(rawValue: value) ?? .celsius
+        }
         
     }
 
@@ -48,6 +51,8 @@ class WeatherListTableViewController: UITableViewController,AddWeatherCityViewCo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddWeatherCityViewController"{
             prepareSegueForAddWeatherCityViewController(segue:segue)
+        }else if  segue.identifier == "SettingsTableViewController"{
+            prepareSegueForSettingsViewController(segue:segue)
         }
     }
     
@@ -62,6 +67,18 @@ class WeatherListTableViewController: UITableViewController,AddWeatherCityViewCo
         
         addWeatherCityVC.delegate = self
     }
+    
+    func prepareSegueForSettingsViewController(segue:UIStoryboardSegue){
+        guard let nav = segue.destination as? UINavigationController else{
+            fatalError("Navigation Controller Not found")
+        }
+        
+        guard let settingsVC = nav.viewControllers.first as? SettingsTableViewController else{
+            fatalError("SettingsTableViewController Not found")
+        }
+        
+        settingsVC.delegate = self
+    }
 
     // MARK: - AddWeatherCityViewController_Delegate
     func addWeatherDidSave(vm: WeatherViewModel) {
@@ -69,4 +86,12 @@ class WeatherListTableViewController: UITableViewController,AddWeatherCityViewCo
         self.tableView.reloadData()
     }
     
+    // MARK: - SettingsTableViewController_Delegate
+    func settingsDone(vm:SettingViewModel){
+        if lastUnitsSelected.rawValue != vm.selectedUnit.rawValue{
+            self.weatherListViewModels.updateUnit(to: vm.selectedUnit)
+            tableView.reloadData()
+            lastUnitsSelected =  Unit(rawValue: vm.selectedUnit.rawValue) ?? .celsius
+        }
+    }
 }

@@ -7,11 +7,14 @@
 
 import UIKit
 
-
+protocol SettingsTableViewController_Delegate{
+    func settingsDone(vm:SettingViewModel)
+}
 
 class SettingsTableViewController: UITableViewController {
     
     let settingsViewModel = SettingViewModel()
+    var delegate:SettingsTableViewController_Delegate? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +73,15 @@ class SettingsTableViewController: UITableViewController {
         }
     }
 
+    
+    // MARK: - Button
+    @IBAction func done(){
+        if let delegate = self.delegate{
+            delegate.settingsDone(vm: settingsViewModel)
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
