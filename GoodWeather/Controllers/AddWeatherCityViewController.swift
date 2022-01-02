@@ -9,13 +9,23 @@ import UIKit
 
 class AddWeatherCityViewController: UIViewController {
 
+    @IBOutlet weak var cityNameTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func save_click(_ sender: Any) {
+        
+    }
+    
+    @IBAction func close_clickj(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
