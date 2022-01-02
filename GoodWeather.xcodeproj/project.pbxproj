@@ -18,6 +18,10 @@
 		FBC8E9D62781671500844135 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC8E9D52781671500844135 /* WeatherCell.swift */; };
 		FBC8E9DB278172B900844135 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC8E9DA278172B900844135 /* WebService.swift */; };
 		FBC8E9DE2781753800844135 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC8E9DD2781753800844135 /* WeatherResponse.swift */; };
+		FBC8E9E1278178A800844135 /* AddWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC8E9E0278178A800844135 /* AddWeatherViewModel.swift */; };
+		FBC8E9E42781791600844135 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC8E9E32781791600844135 /* Constants.swift */; };
+		FBC8E9E72781799900844135 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC8E9E62781799900844135 /* String+Extensions.swift */; };
+		FBC8E9E9278185E800844135 /* WeatherListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC8E9E8278185E800844135 /* WeatherListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		FBC8E9D52781671500844135 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		FBC8E9DA278172B900844135 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		FBC8E9DD2781753800844135 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
+		FBC8E9E0278178A800844135 /* AddWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeatherViewModel.swift; sourceTree = "<group>"; };
+		FBC8E9E32781791600844135 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FBC8E9E62781799900844135 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		FBC8E9E8278185E800844135 /* WeatherListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +74,9 @@
 		FBC8E9BA27815C9B00844135 /* GoodWeather */ = {
 			isa = PBXGroup;
 			children = (
+				FBC8E9E52781798C00844135 /* Extensions */,
+				FBC8E9E2278178F800844135 /* Utils */,
+				FBC8E9DF2781788200844135 /* ViewModels */,
 				FBC8E9DC278174F300844135 /* Models */,
 				FBC8E9D9278172A900844135 /* Services */,
 				FBC8E9D4278166F000844135 /* CustomCells */,
@@ -112,6 +123,31 @@
 				FBC8E9DD2781753800844135 /* WeatherResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FBC8E9DF2781788200844135 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FBC8E9E0278178A800844135 /* AddWeatherViewModel.swift */,
+				FBC8E9E8278185E800844135 /* WeatherListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FBC8E9E2278178F800844135 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FBC8E9E32781791600844135 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FBC8E9E52781798C00844135 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FBC8E9E62781799900844135 /* String+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,9 +222,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBC8E9C027815C9B00844135 /* ViewController.swift in Sources */,
+				FBC8E9E9278185E800844135 /* WeatherListViewModel.swift in Sources */,
+				FBC8E9E72781799900844135 /* String+Extensions.swift in Sources */,
 				FBC8E9D327815FF300844135 /* AddWeatherCityViewController.swift in Sources */,
 				FBC8E9DB278172B900844135 /* WebService.swift in Sources */,
 				FBC8E9D62781671500844135 /* WeatherCell.swift in Sources */,
+				FBC8E9E1278178A800844135 /* AddWeatherViewModel.swift in Sources */,
+				FBC8E9E42781791600844135 /* Constants.swift in Sources */,
 				FBC8E9BC27815C9B00844135 /* AppDelegate.swift in Sources */,
 				FBC8E9D127815F8700844135 /* WeatherListTableViewController.swift in Sources */,
 				FBC8E9BE27815C9B00844135 /* SceneDelegate.swift in Sources */,

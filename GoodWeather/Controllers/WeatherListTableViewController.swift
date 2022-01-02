@@ -7,22 +7,14 @@
 
 import UIKit
 
-class WeatherListTableViewController: UITableViewController {
+class WeatherListTableViewController: UITableViewController,AddWeatherCityViewController_Delegate {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        let resource = Resource<WeatherResponse>(url: URL(string: "https://api.openweathermap.org/data/2.5/weather?q=houston&appid=587faf23c5198901c5deb6a86fbf6308")!) { data in
-            return try? JSONDecoder().decode(WeatherResponse.self, from: data)
-        }
-        
-        Webservice().load(resource: resource) { weatherResponse in
-            if let weatherResponse = weatherResponse{
-                print(weatherResponse)
-            }
-        }
+     
         
     }
 
@@ -51,50 +43,27 @@ class WeatherListTableViewController: UITableViewController {
         return 120
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddWeatherCityViewController"{
+            prepareSegueForAddWeatherCityViewController(segue:segue)
+        }
     }
-    */
+    
+    func prepareSegueForAddWeatherCityViewController(segue:UIStoryboardSegue){
+        guard let nav = segue.destination as? UINavigationController else{
+            fatalError("Navigation Controller Not found")
+        }
+        
+        guard let addWeatherCityVC = nav.viewControllers.first as? AddWeatherCityViewController else{
+            fatalError("AddWeatherCityViewController Not found")
+        }
+        
+        addWeatherCityVC.delegate = self
+    }
 
+    // MARK: - AddWeatherCityViewController_Delegate
+    func addWeatherDidSave(vm: WeatherViewModel) {
+        print(vm)
+    }
+    
 }

@@ -7,26 +7,29 @@
 
 import UIKit
 
-class AddWeatherCityViewController: UIViewController {
+protocol AddWeatherCityViewController_Delegate{
+    func addWeatherDidSave(vm:WeatherViewModel)
+}
+
+class AddWeatherCityViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var cityNameTextField: UITextField!
-    
+    private var addWeatherVM = AddWeatherViewModel()
+    var delegate:AddWeatherCityViewController_Delegate? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        cityNameTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
     @IBAction func save_click(_ sender: Any) {
         if let city = cityNameTextField.text{
-            let weatherUrl = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=587faf23c5198901c5deb6a86fbf6308")!
-            let weatherResource = Resource<Any>(url: weatherUrl) { data in
-                return data
-            }
-            
-            Webservice().load(resource: weatherResource) { result in
-                 
+            print("save_click -> city = \(city)")
+            addWeatherVM.addWeather(for: city) { (vm) in
+                self.delegate?.addWeatherDidSave(vm: vm)
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -35,14 +38,4 @@ class AddWeatherCityViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
